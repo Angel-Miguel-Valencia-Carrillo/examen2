@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:valenciaexam/pagina_inicial.dart';
+import 'package:valenciaexam/pagina_silverappbar.dart';
+import 'package:valenciaexam/pagina_slider.dart';
+import 'package:valenciaexam/pagina_rotatedbox.dart';
+import 'package:valenciaexam/pagina_placeholder.dart';
+import 'package:valenciaexam/pagina_choicechip.dart';
+import 'package:valenciaexam/pagina_animatedpadding.dart';
+import 'package:valenciaexam/pagina_fadetransition.dart';
+import 'package:valenciaexam/pagina_stafullbulder.dart';
+import 'package:valenciaexam/pagina_animationbuilder.dart';
+import 'package:valenciaexam/pagina_pageview.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MisWidgets());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MisWidgets extends StatelessWidget {
+  const MisWidgets({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Entre paginas Routes',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const PantallaInicial(),
+        '/sliverappBar': (context) => const SliverAppBarExam(),
+        '/slider': (context) => const SliderExam(),
+        '/rotatedbox': (context) => const RotatedBoxExam(),
+        '/placeholder': (context) => const PlaceholderExam(),
+        '/choicechip': (context) => const ChoiceChipExam(),
+        '/animatedpadding': (context) => const AnimatedPaddingExam(),
+        '/fadetransition': (context) => const FadeTransitionExam(),
+        '/statefullbuilder': (context) => const StateFullBuilderExam(),
+        '/animationbuilder': (context) => const AnimationBuilderExam(),
+        '/pageview': (context) => PageViewExam(),
+      },
     );
   }
 }
